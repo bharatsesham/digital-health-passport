@@ -1,2 +1,7 @@
 # digital-health-passport
-A blockchain implementation of a passport to track individual's health conditions and vaccination status. 
+A blockchain implementation of a passport to track individual's health conditions and vaccination status.
+
+
+
+The main objective of the app is to maintain a decentralized health passport that allows individuals to store their health reports and vaccination status while protecting their privacy. The initial version of the Dapp will mainly concentrate on the vaccination status and testing results for COVID-19. The clients for the Dapp will be any individual that are currently vaccinating themselves for COVID-19, using the Dapp they will be able to track various aspects of the vaccinations process such as the vaccine batchID, vaccine provider, vaccinated location, vaccination date, current vaccine stage, on-site temperature, and etc. This would also allow the vaccine providers to track their vaccine batches and plan their inventory to meet the supply-chain demand. The users can use the Dapp to scan a unique QR-code provided with the on-site vaccine to on-board the details or enter the details manually into the app that gets stored in a decentralized manner. This would allow the users to track their vaccination status without revealing their true identity and also allows individuals to share their health status and completely control the access to their data. Future versions of the Dapp can incorporate data from various dynamic health data sources, including any lab test reports, prescriptions, medical readings, and any other health-related data. 
+
