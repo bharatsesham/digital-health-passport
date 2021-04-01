@@ -9,6 +9,8 @@ contract HealthPassort{
         string name;
         uint loinc;
         bytes32 result;
+        uint validTill;
+        uint validFrom;
         uint levelOneKey;
         uint levelTwoKey;
         uint levelThreeKey;
@@ -71,11 +73,24 @@ contract HealthPassort{
         subscription[user] = 0;
     }
     
-    // Requestor can use this function to request health details of the asset holder. 
-    function request(address healthAssetHolder, uint levelHash, uint level) onlyRequestor public { 
-        if (subscription[healthAssetHolder] != 1 || requestorDetails[msg.sender].accessLevel < level) {
-            revert();
+    // // Requestor can use this function to request health details of the asset holder. 
+    // function request(address healthAssetHolder, uint levelHash, uint level) onlyRequestor public { 
+    //     if (subscription[healthAssetHolder] != 1 || requestorDetails[msg.sender].accessLevel < level) {
+    //         revert();
+    //     }
+    //     // Share the details. 
+    // }
+    
+    // Check if the user is COVID safe to permit access into any place. 
+    function covidPass (address healthAssetHolder) public returns(bool) {
+        require(subscription[healthAssetHolder] == 1 );
+        if ((healthDetails[healthAssetHolder].validFrom <= block.timestamp || 
+             healthDetails[healthAssetHolder].validTill > block.timestamp) && 
+            (healthDetails[healthAssetHolder].result == "negitive")) {
+            return true;
         }
-        // Share the details. 
+        else {
+            return false;
+        }
     }
 }
